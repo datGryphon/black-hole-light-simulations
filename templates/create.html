@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <title>Simulating and Visualizing Schwarzschild Geometry</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    
+    <script type="text/javascript" src="
+    {{url_for('static',filename='js/canvasXpress.min.js')}}"></script>
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+
+    <script id='demoScript'>
+      var allPoints = {{points}};
+      var plotlist = {{plotlist | safe}};
+
+      var xyScale=10;
+      
+      var showDemo = function () {
+        container=document.getElementById("canvasContainer");
+        container.removeChild(container.firstChild);
+        container.innerHTML="<canvas id='canvas1' width='800' height='800'></canvas>";
+        var cx1 = new CanvasXpress('canvas1',
+          {
+            'z' : {
+              'Plots' : plotlist
+            },
+            'y' : {
+              'smps' : ['X-axis', 'Y-axis', ''],
+              'data' : allPoints
+            }
+          },
+          {
+            'graphType': 'Scatter3D',
+            // 'colors': ['rgb(145,191,219)'],
+            'colorBy' : 'Plots',
+            'xAxis': ['X Axis'],
+            'yAxis': ['Y Axis'],
+            'zAxis': ['Z Axis'],
+            'xAxisExact': true,
+            'yAxisExact': true,
+            'zAxisExact': true,
+            'setMinX': -xyScale, 'setMaxX': xyScale,
+            'setMinY': -xyScale, 'setMaxY': xyScale,
+            'setMinZ': -0.5, 'setMaxZ': 0.5,
+          }
+        );
+      };
+
+      var sizeDown = function(){
+        if (xyScale > 5){
+          xyScale-=5;
+          showDemo();
+        }
+      };
+
+      var resetSize = function(){
+        if (xyScale != 10){
+          xyScale=10;
+          showDemo();
+        }
+      };
+
+      var sizeUp = function(){
+        if (xyScale < 100){
+          xyScale+=5;
+          showDemo();
+        }
+      };
+    </script>
+
+  </head>
+
+
+  <body onload="showDemo();">
+
+    <div class="header">
+      <div  id="header-text">
+        <h1>Schwarzschild Geometry</h1>
+        <h3>Simulating and Visualizing</h3>
+      </div>
+    </div>
+
+    <div class="link">
+      <a href="{{url_for('getPoints')}}">Trajectory</a>
+      <a href="{{url_for('home')}}">Home</a>
+      <a href="{{url_for('image')}}">Realistic Image</a>
+    </div>
+    <center>
+      <form action="{{url_for('getPoints')}}" method="POST">
+        Radius:<br>
+        <input type="number" name="radius" step="0.01" value="{{radius}}">
+        <br>
+        Initial angle:<br>
+        <input type="number" name="sigma" step="0.01" value="{{sigma}}">
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+      </form> 
+      
+      <form>
+        <input type="button" name="Zoom+" value="+" onclick="sizeUp();">
+        <input type="button" name="default" value="default" onclick="resetSize();">
+      </form>
+      <input type="button" name="Zoom-" value="-" onclick="sizeDown();">
+      </center>
+    <center>
+      <table width="800">
+        <tr><td>
+
+          <div id="Scatter3D">
+          <table class='example'>
+            <tr>
+              <td id="canvasContainer">
+                <canvas id='canvas1' width='800' height='800'></canvas>
+              </td>
+            </tr>
+          </table>
+          </div>
+
+        </td></tr>
+      </table>
+    </center>
+ 
+  </body>
+
+</html>
