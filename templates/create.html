@@ -24,15 +24,17 @@
           {
             'z' : {
               'Plots' : plotlist
+              // 'Plots' : ['a','a','a','a','a','b','b','b','b','b'] /*plotlist*/
             },
             'y' : {
               'smps' : ['X-axis', 'Y-axis', ''],
               'data' : allPoints
+              // 'data' : [[0,0,0],[1,0,0],[1,1,0],[1,2,0],[2,1,0],[3,0,0],[3,1,0],[4,1,0],[3,2,0],[4,2,0]]/*allPoints*/
             }
           },
           {
             'graphType': 'Scatter3D',
-            // 'colors': ['rgb(145,191,219)'],
+            'connectBy': 'Plots',
             'colorBy' : 'Plots',
             'xAxis': ['X Axis'],
             'yAxis': ['Y Axis'],

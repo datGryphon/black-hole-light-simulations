@@ -10,6 +10,20 @@ from flask import make_response
 from functools import wraps, update_wrapper
 from datetime import datetime
 
+rng=range(0,len(orbit),100)
+rng.append(-1)
+orbit = [orbit[i] for i in rng]
+
+orbitplotname = ["Photon" for i in range(len(orbit))]
+
+rng=range(0,len(horizon),100)
+rng.append(-1)
+horizon = [horizon[i] for i in rng]
+
+rng=range(0,len(BHplotname),100)
+rng.append(-1)
+BHplotname = [BHplotname[i] for i in rng]
+
 # configuration
 DEBUG = True
 
@@ -37,32 +51,35 @@ def getPoints():
 	sigma="90.0"
 	plotlist=[]
 
-	print session
-
 	if request.method=='POST':
 
-		points=horizon
-		plotlist=BHplotname
+		radius=float(request.form['radius'])
+		sigma=float(request.form['sigma'])
 
-		radius=request.form['radius']
-		sigma=request.form['sigma']
-
-		if not ((float(radius)==3.0 and float(sigma)==90.0) or (float(radius)<=2.0)):
-			output=subprocess.check_output(["./dudphi",radius,sigma])
+		if not((radius==3.0 and sigma==90.0) or (radius<=2.0) or (sigma==0.0 and radius>=2.0)):
+			output=subprocess.check_output(["./dudphi",str(radius),str(sigma)])
 			photon=eval(output)
 			prepost=photon.pop(-1)
 			print "Process successfully called, exited with ", prepost
-			points.extend(photon)
-			plotlist.extend(["Photon" for i in range(len(photon))])
+			r= range(0,len(photon),100)
+			r.append(-1)
+			points= [ photon[i] for i in r]
+			plotlist = ["Photon" for i in range(len(points))]
+			points.extend(horizon)
+			plotlist.extend(BHplotname)
+		elif sigma==0:
+			print "sigma = 0 "
 		elif float(radius)<=2.0:
 			print "horizon"
+			points = horizon
+			plotlist = BHplotname
 		else:
 			print "orbit"
-			points.extend(orbit)
-			plotlist.extend(["Photon" for i in range(len(orbit))])
+			points = orbit
+			points.extend(horizon)
+			plotlist = orbitplotname
+			plotlist.extend(BHplotname)
 		
-
-	print len(points)
 	return render_template('create.html',points=points,plotlist=plotlist,radius=radius,sigma=sigma)
 
 # @app.after_request
