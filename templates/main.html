@@ -19,14 +19,23 @@
     </div>
 
     <div class="link">
-      <a href="{{url_for('getPoints')}}">Trajectory</a>
       <a href="{{url_for('home')}}">Home</a>
-      <a href="{{url_for('image')}}">Realistic Image</a>
+      <a href="{{url_for('math')}}">Mathematics</a>
+      <a href="{{url_for('getPoints')}}">Trajectory</a>
+      <a href="{{url_for('image')}}">Image Correction</a>
     </div>
 
     <div>
       <h4>Introduction</h4> 
-      <p>Simulating and Visualizing Schwarzschild Geometry is a software project with two separate sections each with different functions. <br><br> The first program provides an interactive simulation of the behavior of light particles near a black hole. <br><br> The second program creates a realistic image of how a black hole would be perceived by the human eye.
+      <p>Simulating and Visualizing Schwarzschild Geometry is a website with two separate sections each with different functions. <br><br> 
+      The first part will be a web application which accurately simulates the behavior of a single light particle near a black hole. This will serve as a teaching and visualization tool for use by Professor Dipankar to loosely demonstrate Schwarzschild geometry. This will also be useful as an interactive in-class demonstration where students will be able to move the photon around and view the resulting change in its path. All calculations will be done assuming a black hole with a mass of one, so that the values of the program can easily be scaled to a real situation. <br><br> 
+      The goal of the second part of the project is to try and determine how to correct for increased brightness or darkness based on position of the “camera” when trying to take an image of a black whole.  In traditional euclidean space, which light is not bend, the estimated number of light particles which will collide with a lens follows directly from the number of beams emitted by the light-source (assuming even distribution) the size of the lens and the distance between the lens and the light.  However when the gravitational force of a black hole is introduced to the situation, not much is know/can be said about how many light particle will hit the lens given a particular position for the lens and the light. 
+      </p>
+    </div>
+
+    <div>
+      <h4>How to use this website?</h4> 
+      <p>...
       </p>
     </div>
 
@@ -37,18 +46,15 @@
       Faculty advisor: Dipankar Maitra<br><br>
       Project start/end: Jan 2017/continuing
       </p>
+      <div class="link">
+        <a href="https://github.com/datGryphon/black-hole-light-simulations">Link to Github</a>
+      </div>
     </div>
 
     <div>
       <h4>References</h4>
-      <p>
-      ......
-      <!-- example of how to insert a link
-      <li>
-      <a href="http://adsabs.harvard.edu/abs/1989ApJ...345..245C">
-      Cardelli, J. A., Clayton, G. C., and Mathis, J. S., 1989, ApJ, 345, 245
-      </a></li>
-      -->
+      <p id="team-text">
+      Misner, Charles W., Kip S. Thorne, and John Archibald. Wheeler. Gravitation. New York, NY: Freeman, 2008. Print.
       </p> 
     </div>
 

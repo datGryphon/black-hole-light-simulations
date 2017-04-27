@@ -84,44 +84,46 @@
     </div>
 
     <div class="link">
-      <a href="{{url_for('getPoints')}}">Trajectory</a>
       <a href="{{url_for('home')}}">Home</a>
-      <a href="{{url_for('image')}}">Realistic Image</a>
+      <a href="{{url_for('math')}}">Mathematics</a>
+      <a href="{{url_for('getPoints')}}">Trajectory</a>
+      <a href="{{url_for('image')}}">Image Correction</a>
     </div>
     <center>
       <form action="{{url_for('getPoints')}}" method="POST">
         Radius:<br>
         <input type="number" name="radius" step="0.01" value="{{radius}}">
-        <br>
+        <br><br>
         Initial angle:<br>
         <input type="number" name="sigma" step="0.01" value="{{sigma}}">
         <br><br>
         <input type="submit" name="submit" value="Submit">
-      </form> 
-      
-      <form>
-        <input type="button" name="Zoom+" value="+" onclick="sizeUp();">
-        <input type="button" name="default" value="default" onclick="resetSize();">
       </form>
-      <input type="button" name="Zoom-" value="-" onclick="sizeDown();">
-      </center>
-    <center>
-      <table width="800">
-        <tr><td>
-
-          <div id="Scatter3D">
-          <table class='example'>
-            <tr>
-              <td id="canvasContainer">
-                <canvas id='canvas1' width='800' height='800'></canvas>
-              </td>
-            </tr>
-          </table>
-          </div>
-
-        </td></tr>
-      </table>
     </center>
+  
+    <form>
+      <input type="button" name="Zoom-" value="-" onclick="sizeDown();">
+      <input type="button" name="default" value="default" onclick="resetSize();">
+      <input type="button" name="Zoom+" value="+" onclick="sizeUp();">
+      <center>
+        <table width="800">
+          <tr><td>
+
+            <div id="Scatter3D">
+              <table class='example'>
+                <tr>
+                  <td id="canvasContainer">
+                    <canvas id='canvas1' width='800' height='800'></canvas>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+          </td></tr>
+        </table>
+      </center>
+    </form>
+    
  
   </body>
 
