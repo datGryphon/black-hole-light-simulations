@@ -35,6 +35,10 @@ CORS(app)
 def home():
 	return render_template('main.html')
 
+@app.route('/math',methods=['GET'])
+def math():
+	return render_template('math.html')
+
 @app.route('/input',methods=['GET'])
 def input():
 	return render_template('input.html')
