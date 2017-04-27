@@ -56,7 +56,8 @@ def getPoints():
 		radius=float(request.form['radius'])
 		sigma=float(request.form['sigma'])
 
-		if not((radius==3.0 and sigma==90.0) or (radius<=2.0) or (sigma==0.0 and radius>=2.0)):
+		if not((radius==3.0 and sigma==90.0) or (radius<=2.0)):
+
 			output=subprocess.check_output(["./dudphi",str(radius),str(sigma)])
 			photon=eval(output)
 			prepost=photon.pop(-1)
