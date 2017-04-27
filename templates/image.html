@@ -26,11 +26,10 @@
 
     <div>
       <h4>Image Correction</h4> 
-        <p>The basic idea of how we are going to try and achieve this is creating a simulation which sets a distance from the black hole to the viewer’s lens then after choosing a position for the light-source, a large number of photons will be emitted from the light-source with an equal distribution, the trajectories of the photon are calculated, and the number of light particles which collide with the lens is tallied. Finally, by taking the ratio of the recorded number of collisions divided by the number of particles that would hit the lens without the black hole present, a metric is obtained which represents the relative perceived brightness of a particular object/position with respect to the black hole and lens position.
-      </p>
       <center>
+      <p>The basic idea of how we are going to try and achieve this is creating a simulation which sets a distance from the black hole to the viewer’s lens then after choosing a position for the light-source, a large number of photons will be emitted from the light-source with an equal distribution, the trajectories of the photon are calculated, and the number of light particles which collide with the lens is tallied. Finally, by taking the ratio of the recorded number of collisions divided by the number of particles that would hit the lens without the black hole present, a metric is obtained which represents the relative perceived brightness of a particular object/position with respect to the black hole and lens position.
+      </p>
         <img src="./static/ic.png">
-      </center>
       <p>The program is not quite finished yet, but we have some qualitative predictions that we can make based on the familiarity we have gained with the behavior of photons near black holes. 
       <br><br>1) when the light-source lies directly between the lens and the black hole, the brightness ratio should be very close to 1. 
       <br><br>2) The darkest position will most likely be when the black hole lies directly between the light-source and the lens. 
@@ -38,6 +37,7 @@
       <br><br>4) because of the nature of the Schwartzchild Metric, and the qualitative prediction methods listed for the first part of the project, we do not have to calculate the trajectories of every photon. We can take advantage of the symmetry of the Schwartzchild Metric to calculate only half of the photon paths, and even further, we can use or qualitative predictions to predetermine whether a photon path needs to be simulated or whether it ends up falling into the black hole. 
       </p>
     </div>
+    </center>
 
 
 
