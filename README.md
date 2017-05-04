@@ -55,11 +55,11 @@ Before the regular computational part of the system can take place a few things 
 
   -If the input parameters match one of the precomputed photon paths(i.e. perfect orbit or photon starts inside the black hole), then the server inserts the precomputed plot points and point names into the {{points}} and {{plotList}} tags of the create.html template respectively.  
   
-    -Otherwise, python server does not know the trajectory of the photon and so a new subprocess is created wherein the server calls the pre-compiled c++ code with the starting parameters provided by the client, the resulting point list is then passed from the c++ instance to the python server via stdout, a plot list is then generated and the two lists together, points and plotList are inserted into the create.html template as per the previous case.  Finally, once the correct points and plot list are determined the python server uses the jinja templating engine to insert those values into the script tag of the getPoints page before it is returned to the user.  
+  -Otherwise, python server does not know the trajectory of the photon and so a new subprocess is created wherein the server calls the pre-compiled c++ code with the starting parameters provided by the client, the resulting point list is then passed from the c++ instance to the python server via stdout, a plot list is then generated and the two lists together, points and plotList are inserted into the create.html template as per the previous case.  Finally, once the correct points and plot list are determined the python server uses the jinja templating engine to insert those values into the script tag of the getPoints page before it is returned to the user.  
     
 4)After experimenting with the web application, the user wants to delve deeper into the questions and problems revolving around the topic of black holes and behavior of light and so he/she navigates to the image correction page (localhost:5000/image) to learn more about the last portion of the project which is still in the very earliest stages of development. This another static web page which is delivered to the client in the same way as pages (1) and (2).  
   
-Each of these separate http requests (1,2,3,3a,4) are stateless and therefore can be made in any order (i.e. no particular page must be visited before another) as long as the correct HTTP request method is used (and additional form elements are provided where appropriate).  
+Each of these separate http requests (1,2,3a,3b,4) are stateless and therefore can be made in any order (i.e. no particular page must be visited before another) as long as the correct HTTP request method is used (and additional form elements are provided where appropriate).  
 
 
 # Application Program Interface
