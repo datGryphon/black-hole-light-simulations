@@ -102,7 +102,7 @@
     <center>
       <form action="{{url_for('getPoints')}}" method="POST">
         Radius:<br>
-        <input type="number" name="radius" step="0.01" value="{{radius}}">
+        <input type="number" name="radius" step="0.01" min="0" value="{{radius}}">
         <br><br>
         Initial angle <br/>[0.0&deg;&le; &delta; &le;180&deg;]:<br>
         <input type="number" name="sigma" step="0.01" min="0" max="180" value="{{sigma}}">
@@ -112,9 +112,11 @@
     </center>
   
     <form>
-      <center><input type="button" name="Zoom-" value="-" onclick="sizeDown();">
+      <center>
+      Axes Scale:<br>
+      <input type="button" name="Zoom-" value="<" onclick="sizeDown();">
       <input type="button" name="default" value="default" onclick="resetSize();">
-      <input type="button" name="Zoom+" value="+" onclick="sizeUp();">
+      <input type="button" name="Zoom+" value=">" onclick="sizeUp();">
       </center>
       <center>
         <table width="800">
