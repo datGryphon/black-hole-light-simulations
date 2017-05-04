@@ -41,3 +41,31 @@ Then if the default IP port(5000) is taken or otherwise undesirable, change line
 While the server process is running, the web application can be accessed by navigating to http://MY.IP.AD.DR:PORT/ in a browser which is connected to the same network. If the server should be visible from outside the network, the network firewall will need to be reconfigured to forward the running port of the static IP of the machine to the network’s public IP address. If the server should run on machine startup, then the administrator should follow the following guide to configure Apache2 to handle and relay http requests for Flask. 
 http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/#configuring-apache 
 
+# Application Program Interface
+
+The python server creates four separate http request access points which are defined as follows. 
+
+/ → Rootpage of Site
+    Methods: GET
+    Returns: HTML for the website’s front page.
+
+/math → Mathematics page
+    Methods: GET
+    Returns: HTML for the website’s math page.
+
+/getPoints → Trajectory page and Web-App
+    Methods: GET,POST
+    Form Requirements: 
+        The POST request form has two elements:
+            radius → Real Number in range [0,Inf)
+            sigma → Real Number in range [0,180]
+    
+Returns: 
+    GET:  HTML for the web app.
+    POST: HTML for the web app with the point data 
+inserted directly into the <script> so that on page load the data is displayed automatically via the visualization script in the <HEAD>.
+
+/image → Image Correction page
+    Methods: GET
+    Returns: HTML for the website’s image corr. page.
+
