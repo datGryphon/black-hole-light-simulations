@@ -97,14 +97,18 @@
     </div>
     <br/>
     <h4>Instructions</h4>
-    <center><p>If you have not done so already, go check out the Mathematics page to see an explanation of the problem being solved here and tips on how to qualitatively predict the outcomes of a given set of input parameters. Otherwise, welcome to the Trajectory Tool!  What you see below is a set of input boxes which determine the two starting parameters which dictate the path of a photon in Schwarzschild Geomety.  The first is the radius box which controls the starting distance between the photon and the center of the black hole. The second, ititial angle, dictates the starting direction of travel -- in degrees -- for the photon, relative to the x axis. For exampe, if the starting direction of travel of the photon is up and to the right relative to its initial position, a initial angle between 0&deg; and 90&deg; should be chosen.  Because of the way the plot is set up, the possible trajectories of the photon are symmetrical across the x-axis and so the range of initial angles is limited to 180&deg;. If a initial angle &gt;180&deg; is desired, one can plot the trajectory of radius=radius and angle=360-angle and then treat the plot as if it were reflected across the x-axis. All calculations on this page are done assuming a black hole mass of 1 and therefore the values of the units of the graph are in black-hole-radii. Please enjoy using the tool!</p></center>
+    <p>If you have not done so already, go check out the Mathematics page to see an explanation of the problem being solved here and tips on how to qualitatively predict the outcomes of a given set of input parameters. Otherwise, welcome to the Trajectory Tool! <br><br> What you see below is a set of input boxes which determine the two starting parameters which dictate the path of a photon in Schwarzschild Geomety.  The first is the radius box which controls the starting distance between the photon and the center of the black hole. The second, initial angle, dictates the starting direction of travel -- in degrees -- for the photon, relative to the x axis. For exampe, if the starting direction of travel of the photon is up and to the right relative to its initial position, a initial angle between 0&deg; and 90&deg; should be chosen.  Because of the way the plot is set up, the possible trajectories of the photon are symmetrical across the x-axis and so the range of initial angles is limited to 180&deg;. If a initial angle &gt;180&deg; is desired, one can plot the trajectory of radius=radius and angle=360-angle and then treat the plot as if it were reflected across the x-axis. All calculations on this page are done assuming a black hole mass of 1 and therefore the values of the units of the graph are in black-hole-radii. <br><br>Please enjoy using the tool!
+    </p>
 
     <center>
       <form action="{{url_for('getPoints')}}" method="POST">
         Radius:<br>
         <input type="number" name="radius" step="0.01" min="0" value="{{radius}}">
         <br><br>
-        Initial angle <br/>[0.0&deg;&le; &delta; &le;180&deg;]:<br>
+        Initial angle: 
+        <br>
+        [0.0&deg;&le; &delta; &le;180.0&deg;]
+        <br>
         <input type="number" name="sigma" step="0.01" min="0" max="180" value="{{sigma}}">
         <br><br>
         <input type="submit" name="submit" value="Submit">

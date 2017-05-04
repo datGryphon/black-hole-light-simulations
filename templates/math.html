@@ -27,28 +27,34 @@
 
     <div>
       <h4>Goals</h4>
-      <center>
       <p>The goal here is to predict the path of a photon near a non-spinning, uncharged black hole. Spacetime near such a black hole is described by what is known as the Schwarzschild metric in the theory of general relativity. Without any loss of generality one can assume the starting location of a photon to be on the x-axis. <br><br>
       The two inputs r<sub>0</sub> and δ<sub>0</sub> defines the starting location of a photon where r<sub>0</sub> is the distance from the center of the black hole and δ<sub>0</sub> is the angle that this photon makes with the x-axis. This is shown in the figure below.
       </p>
-      <img src="./static/sch.png" width="650.5" height="467.5">
+      <center>
+        <img src="./static/sch.png" width="650.5" height="467.5">
       </center>
     </div>
 
     <div>
       <h4>Qualitative predictions</h4>
-      <center>
+      
       <p>Even before quantitatively solving for the null geodesic -- the path of the photon -- in Schwarzschild metric, some of the properties of the geodesic can be qualitatively ascertained based on the starting parameters r<sub>0</sub> and δ<sub>0</sub>. For this we first define a function B(r), such that
       </p>
-       <img src="./static/1.png">
+      <center>
+        <img src="./static/1.png">
+      </center>
       <p>and another quantity b, called the impact parameter, such that
       </p>
-       <img src="./static/2.png">
+      <center>
+        <img src="./static/2.png">
+      </center>
       <p>Once we have calculated b, the theory of general relativity predicts that:
       <br><br>0. A photon starting at r<sub>0</sub> < 2M will never escape outside r = 2M.<br> Thus r = 2M defines the size of a Schwarzschild black hole.
       <br><br>1. A photon starting at 2M < r<sub>0</sub> < 3M will eventually escape to infinity, rather than be captured by the black hole (i.e. go inside r = 2M) if and only if δ<sub>0</sub> < π/2 and
       </p>
-       <img src="./static/3.png">
+      <center>
+        <img src="./static/3.png">
+      </center>
       <p>2. A photon starting exactly at r<sub>0</sub> = 3M will fall into one of three cases:
       <br>(1) eventually fall into the black hole if δ<sub>0</sub> > π/2, or
       <br>(2) go in a circular orbit around the black hole if δ<sub>0</sub> = π/2, or
@@ -57,37 +63,50 @@
       <br>(1) δ<sub>0</sub> < π/2, or
       <br>(2) δ<sub>0</sub> > π/2 and
       </p>
+      <center>
         <img src="./static/4.png">
       </center>
+      
 
    
     </div>
 
     <div>
       <h4>How to compute the trajectory?</h4> 
-      <center>
       <p>For the Schwarzschild metric the equation for the trajectory of a photon, i.e. the null geodesic, is given by
       </p>
-       <img src="./static/5.png">
+      <center>
+        <img src="./static/5.png">
+      </center>
       <p>where u=M/r. This equation is obtained by differentiating Eq. 25.57 of MTW w.r.t. ϕ. Since the physics here scales with the mass of the black hole (M), we will do all calculations assuming M=1. If needed, converting distance to physical units can be done by multiplying values of r by GM/c<sup>2</sup>. In other words, the radial coordinates here in units of gravitational radii.
       <br><br>In order to solve Eq.(5) numerically using routines e.g. like those in GNU Scientific Library (GSL), it is better to define a new quantity w=du/dϕ, which allows us to rewrite Eq.(5) into two first order differential equations:
       </p>
-       <img src="./static/6.png">
+      <center>
+        <img src="./static/6.png">
+      </center>
       <p>One of the initial conditions to solve Eq.(6) is simply
       </p>
-       <img src="./static/7.png">
+      <center>
+        <img src="./static/7.png">
+      </center>
       <p>Finding the other initial condition, viz. w<sub>0</sub>, is a bit trickier. To find w0 we first note that the radial component of the photon's velocity at the starting point is v<sub>r</sub>=ccos(δ<sub>0</sub>)=cos(δ<sub>0</sub>). This is because c=1 in the system of units that we have chosen. Similarly the cross-radial component of the photon's starting velocity is v<sub>ϕ</sub>=csin(δ<sub>0</sub>)=sin(δ<sub>0</sub>). However elementary mechanics tells us that
       </p>
-       <img src="./static/8.png">
+      <center>
+        <img src="./static/8.png">
+      </center>
       <p>This allows us to recast w=du/dϕ as follows
       </p>
-       <img src="./static/9.png">
+      <center>
+        <img src="./static/9.png">
+      </center>
       <p>Therefore the initial condition for w<sub>0</sub> is given by
       </p>
-       <img src="./static/10.png">
+      <center>
+        <img src="./static/10.png">
+      </center>
       <p>and the set of two differential equations in Eq.(6) can be solved using the two initial conditions given in Eq.(7) and Eq.(10) to obtain the trajectory of the photon.
       </p>
-      </center>
+      
     </div>
 
 
