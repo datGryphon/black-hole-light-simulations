@@ -55,15 +55,13 @@ The python server creates four separate http request access points which are def
 
 /getPoints → Trajectory page and Web-App
    Methods: GET,POST
-   Form Requirements: 
-        The POST request form has two elements:
-            radius → Real Number in range [0,Inf)
-            sigma → Real Number in range [0,180]
-    
-Returns: 
-   GET:  HTML for the web app.
-   POST: HTML for the web app with the point data 
-inserted directly into the <script> so that on page load the data is displayed automatically via the visualization script in the <HEAD>.
+   Form Requirements:   
+      The POST request form has two elements:
+         radius → Real Number in range [0,Inf)
+         sigma → Real Number in range [0,180]
+   Returns: 
+      GET:  HTML for the web app.
+      POST: HTML for the web app with the point data inserted directly into the <script> so that on page load the data is displayed automatically via the visualization script in the <HEAD>.
 
 /image → Image Correction page
    Methods: GET
