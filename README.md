@@ -1,8 +1,16 @@
-# black-hole-light-simulations
+# Simulating and Visualizing Schwarzschild Geometry
 
 This repo provides serverside code for a web application which helps teach and explain to students how light particles behave near black holes. 
 
-# system req & install 
+# Design Objective
+
+The objective of this web application has two separate sections each with different functions. 
+
+The first section simulates the accurate trajectory of a single photon near the black hole based on an initial starting position with two parameters set by the user. The two parameters are radius and initial angle. Radius is the distance between the photon and the center of the black hole while the initial angle dictates the starting travel direction of the photon relative to the x axis. This is built as a teaching tool for Professor Dipankar Maitra to have an interactive demonstration to show students in the class about what trajectory will a single photon generate near a non spinning black hole. Also students are able to move the photon around and view the resulting change in its path. 
+
+The second section simulates trajectories of millions of photons emitted from one light source with an equal distribution, which the position of the light source and viewer can be any place around the black hole. After calculating all the trajectories, the number of light particles which collide with the lens is tallied. By taking the ratio of the recorded number of collisions divided by the number of particles that would hit the lens without the black hole presents, a metric is obtained which represents the relative perceived brightness of a particular object/position with respect to the black hole and lens position. The details of the second part of the project are not mentioned in this document because it is in the very earliest stages of development.
+
+# System Req & Install 
 
 This setup section assumes that the target platform for running the server application is a x86_64 machine using a debian based GNU/Linux distribution on the 4.4.0-75-generic kernel which comes has the GNU g++ compiler, python 2.7.12, PIP python package installer, and the apt package manager installed already and assumes that the administrator has root privileges on the machine. 
 
@@ -86,3 +94,7 @@ Returns:
 /image → Image Correction page  
 Methods: GET  
 Returns: HTML for the website’s image corr. page.
+
+# Environment and Implementation Language
+
+The web application has been implemented in two separate parts which use and require different programming languages and libraries. First, the smaller/core component is the c++ program which uses the GNU Scientific Library’s ordinary differential equation solver to generate a set of points given the initial starting position of a light particle.  GNU g++ was using for compiling (see Setup & Install). The second part of the application is the web server component. This program was implemented using Python 2.7.12 and the Flask web microframework and serves web pages back to the client which utilize HTML and CSS and our plotting application page relies on the javascript library CanvasXpress. The target platform for deployment of this complete server side software package is a x86_64 GNU/Linux machine(see Setup & Install). However, the code should be able to run on any machine which has the GNU, the GNU Scientific Library, Python 2.7.12 and Flask installed.
