@@ -46,8 +46,8 @@ http://flask.pocoo.org/docs/0.12/deploying/mod_wsgi/#configuring-apache
 The python server creates four separate http request access points which are defined as follows. 
 
 / → Rootpage of Site
-   Methods: GET
-   Returns: HTML for the website’s front page.
+|----|-------|   Methods: GET
+|GET |  Returns: HTML for the website’s front page.|
 
 /math → Mathematics page
    Methods: GET
